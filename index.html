@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendataan Pelanggan</title>
+    <title>Pendataan Kursus</title>
 
     <style>
          body {
@@ -13,20 +13,42 @@
             height: 100vh;
             margin: 50px;
         }
+        .formlatihan{  
+            justify-content: center;
+            align-items: center;
+            padding: 100px 100px 80px 150px;
+            background-color: #fdbd58;
+            border-radius: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .formlatihan button {
+            width: 100%;
+            padding: 10px;
+            background-color: #faaf36;
+            color: #fff;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .formlatihan button:hover {
+        background-color: #fc9f0b;
+        }
     </style>
 </head>
 <body>
     <form id="idForm">
         <div class="formlatihan">
-            <h1>Form Pendataan Pelanggan</h1>
+            <h1>Latihan 2 Oktober | RevoU | Form Pendataan Kursus</h1>
             <table>
                 <tr>
-                    <td> judul</td> <td> : </td> <td> <input type="text" name="judul" id="judul" placeholder="Masukan judul Anda"> </input> </td>
+                    <td> Judul</td> <td> : </td> <td> <input type="text" name="email" id="judul" placeholder="Masukan judul Anda"> </input> </td>
                 </tr>
                 <tr>
-                    <td> deskripsi</td> <td> : </td> <td> <input type="text" name="deskripsi" id="deskripsi" placeholder="Masukan deskripsi Anda" > </input> </td>
+                    <td> Deskripsi</td> <td> : </td> <td> <input type="text" name="deskripsi" id="deskripsi" placeholder="Masukan deskripsi Anda" > </input> </td>
                 </tr>
-                
                 <tr>
                     <td><button type="submit">kirim</button></td>
                 </tr>
@@ -54,6 +76,12 @@
                 deskripsi: deskripsi
         })
     }).then ( (res) => {
+        if(res.ok){
+            alert("Status Terkirim")
+
+        }else{
+            alert("Status Gagal")
+        }
         console.log (res);
     })
 })
