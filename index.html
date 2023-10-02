@@ -3,35 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendataan Kostumer</title>
+    <title>Pendataan Pelanggan</title>
+
+    <style>
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 50px;
+        }
+    </style>
 </head>
 <body>
     <form id="idForm">
-        <div>
-            <h1>Form Pendataan Kostumer</h1>
+        <div class="formlatihan">
+            <h1>Form Pendataan Pelanggan</h1>
             <table>
                 <tr>
-                    <td> Nama</td>
-                    <td> : </td>
-                    <td> <input type="text" name="nama" id="nama" placeholder="Masukan nama Anda"> </input> </td>
+                    <td> judul</td> <td> : </td> <td> <input type="text" name="judul" id="judul" placeholder="Masukan judul Anda"> </input> </td>
                 </tr>
                 <tr>
-                    <td> Email</td>
-                    <td> : </td>
-                    <td> <input type="text" name="email" id="email" placeholder="Masukan email Anda" > </input> </td>
+                    <td> deskripsi</td> <td> : </td> <td> <input type="text" name="deskripsi" id="deskripsi" placeholder="Masukan deskripsi Anda" > </input> </td>
                 </tr>
+                
                 <tr>
-                    <td> Alamat</td>
-                    <td> : </td>
-                    <td> <input type="text" name="alamat" id="alamat" placeholder="Masukan alamat Anda" > </input> </td>
-                </tr>
-                <tr>
-                    <td> Pekerjaan</td>
-                    <td> : </td>
-                    <td> <input type="text" name="pekerjaan" id="pekerjaan" placeholder="Masukan pekerjaan Anda" > </input> </td>
+                    <td><button type="submit">kirim</button></td>
                 </tr>
             </table>
         </div>
     </form>
 </body>
+
+<script>
+    const idForm = document.getElementById("idForm")
+    idForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const judul = document.getElementById("judul").value;
+        const deskripsi = document.getElementById("deskripsi").value;
+        console.log(judul, deskripsi);
+
+        fetch("https://back-end-capstone-project-section-semarang-group-10.bimamaarschal.repl.co/api/kursus",{
+
+            method: "POST",
+            headers: {
+                "Content-Type": "application/Json"
+           },
+            body: JSON.stringify({
+                judul: judul,
+                deskripsi: deskripsi
+        })
+    }).then ( (res) => {
+        console.log (res);
+    })
+})
+</script>
+
 </html>
